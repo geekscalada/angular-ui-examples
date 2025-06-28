@@ -55,14 +55,8 @@
 
         <!-- Campo de contraseña con botón para mostrar/ocultar -->
         <div class="form-group form-group--password">
-          <label for="password">Password</label>
-          <div class="password-wrapper">
-            <input
-              [type]="showPassword ? 'text' : 'password'"
-              id="password"
-              name="password"
-              class="form-control form-control--password"
-            />
+          <div class="form-label-row">
+            <label for="password">Password</label>
             <button
               type="button"
               class="password-toggle"
@@ -79,6 +73,14 @@
               />
             </button>
           </div>
+
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            name="password"
+            class="form-control form-control--password"
+          />
+
           <small class="form-hint">
             Use 8 or more characters with a mix of letters, numbers & symbols
           </small>
