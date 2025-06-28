@@ -1,0 +1,98 @@
+<!-- login-page.component.html -->
+<div class="login-page">
+  <!-- Columna izquierda (branding) -->
+  <div class="login-page__branding">
+    <!-- Usamos este DIV para no centrar la columna entera y solo centrar el contenido,
+         ya que podría traer problemas si añades decoraciones, overlays o efectos laterales.
+         Además el title y el subtitle son elementos de un bloque visual coherente,
+         que puede tener propiedades iguales -->
+    <div class="branding__content">
+      <h1 class="branding__title">Design with us</h1>
+      <p class="branding__subtitle">
+        Access to thousands of design resources and templates
+      </p>
+      <img src="assets/brand.svg" alt="brand" class="branding__image" />
+    </div>
+  </div>
+
+  <!-- Columna derecha (formulario) -->
+  <div class="login-page__form">
+    <div class="form-container">
+      <h2 class="form-title">Sign up now</h2>
+
+      <form class="form">
+        <!-- Agrupamos los campos de nombre en una sola fila con distribución equitativa -->
+        <div class="form-row">
+          <div class="form-group form-group--half">
+            <label for="firstName">First name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group form-group--half">
+            <label for="lastName">Last name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+          />
+          <small class="form-hint"
+            >Use 8 or more characters with a mix of letters, numbers &
+            symbols</small
+          >
+        </div>
+
+        <div class="form-group form-check">
+          <input type="checkbox" id="terms" name="terms" />
+          <label for="terms"
+            >By creating an account, I agree to our
+            <a href="#">Terms of use</a> and
+            <a href="#">Privacy Policy</a></label
+          >
+        </div>
+
+        <div class="form-group form-check">
+          <input type="checkbox" id="marketing" name="marketing" />
+          <label for="marketing"
+            >I am also consenting to receive SMS messages and emails including
+            product new feature updates, events, and marketing
+            promotions.</label
+          >
+        </div>
+
+        <div class="form__button-zone">
+          <button type="submit" class="form-button" disabled>Sign up</button>
+
+          <p class="form-footer">
+            Already have an account? <a href="#">Log in</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

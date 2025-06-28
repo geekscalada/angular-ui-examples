@@ -1,0 +1,231 @@
+/* login-page.component.scss */
+
+// Variables SCSS para colores y tamaños reutilizables
+$color-dark: #1a1a1a; // Fondo oscuro del área izquierda
+$color-light: #fff; // Fondo blanco del formulario
+$color-text-light: white; // Texto claro
+$color-border: #ccc; // Bordes de inputs
+$color-primary: #4caf50; // Color del botón principal
+$color-muted: #666; // Texto secundario o desactivado
+$color-focus: #4caf50; // Color para estado focus en campos
+$font-size-title: 2.5rem; // Tamaño del título principal
+$font-size-subtitle: 1.125rem; // Tamaño del subtítulo
+$font-size-form-title: 2rem; // Título del formulario
+$font-size-label: 0.9rem; // Etiquetas de campos
+$font-size-input: 1rem; // Texto de los inputs
+$container-padding: 2rem; // Espaciado general en columnas
+$input-padding: 0.75rem 1rem; // Espaciado interno de inputs
+$border-radius: 6px; // Bordes redondeados
+$max-form-width: 400px; // Anchura máxima del formulario
+$max-image-width: 300px; // Anchura máxima de la imagen izquierda
+$breakpoint-mobile: 768px; // Punto de corte responsive
+$font-family-base: "Segoe UI", sans-serif; // Fuente principal
+
+.login-page {
+  font-family: $font-family-base; // Aplicamos la fuente base
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  height: 100vh; /* Altura exacta de la pantalla para evitar scroll */
+  overflow: hidden;
+
+  &__branding {
+    background-color: $color-dark; /* Fondo oscuro para la sección izquierda */
+    color: $color-text-light; /* Texto en blanco */
+    display: flex;
+    align-items: center; /* Centramos verticalmente el contenido */
+    justify-content: center; /* Centramos horizontalmente */
+    padding: $container-padding; /* Espacio interior */
+
+    .branding__content {
+      text-align: center; /* Centramos el texto */
+
+      .branding__title {
+        font-size: $font-size-title; /* Tamaño grande para el título */
+        margin-bottom: 1rem; /* Espacio inferior */
+        transition: all 0.3s ease;
+      }
+
+      .branding__subtitle {
+        font-size: $font-size-subtitle; /* Tamaño medio para subtítulo */
+        opacity: 0.8; /* Ligera transparencia */
+        margin-bottom: 2rem;
+        transition: opacity 0.3s ease;
+      }
+
+      .branding__image {
+        max-width: $max-image-width; /* Ancho máximo de la imagen */
+        width: 100%; /* Escala según el contenedor */
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  &__form {
+    background-color: $color-dark; /* Fondo oscuro para el formulario */
+    display: flex;
+    align-items: center; /* Centramos verticalmente el formulario */
+    justify-content: center; /* Centramos horizontalmente */
+    padding: $container-padding;
+
+    @media (max-width: $breakpoint-mobile) {
+      padding: 0;
+    }
+
+    .form-container {
+      background-color: $color-light; // Fondo blanco
+      border-radius: 1rem; // Bordes redondeados pronunciados
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); // Sombra suave para dar profundidad
+      max-width: $max-form-width; // Ancho máximo del formulario
+      padding: 2rem; // Espacio interno del formulario
+
+      @media (max-width: $breakpoint-mobile) {
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%; // Ancho completo en móviles
+      }
+
+      .form-title {
+        font-size: $font-size-form-title; /* Tamaño grande para el título */
+        margin-bottom: 2rem; /* Separación con los campos */
+        text-align: center; /* Texto centrado */
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem; /* Separación entre bloques de campos */
+
+        .form-row {
+          display: flex;
+          gap: 1rem; // Espacio entre "First name" y "Last name"
+          margin-bottom: 1.5rem;
+
+          @media (max-width: $breakpoint-mobile) {
+            flex-direction: column; // Apila en pantallas pequeñas
+          }
+        }
+
+        .form-group--half {
+          flex: 1;
+          min-width: 0; // Evita que crezca más allá del contenedor
+        }
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            font-size: $font-size-label; /* Tamaño de las etiquetas */
+            margin-bottom: 0.5rem;
+            color: $color-muted; /* Color gris claro */
+            transition: color 0.3s ease;
+          }
+
+          .form-control {
+            padding: $input-padding; /* Espaciado interno */
+            font-size: $font-size-input; /* Tamaño del texto */
+            border: 1px solid $color-border; /* Borde gris claro */
+            border-radius: $border-radius; /* Bordes redondeados */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+            &:focus {
+              border-color: $color-focus; // Borde verde al enfocar
+              outline: none;
+              box-shadow: 0 0 0 2px rgba($color-focus, 0.2);
+            }
+          }
+
+          .form-hint {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 0.25rem;
+            display: block;
+          }
+        }
+
+        .form-check {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: row;
+          gap: 0.75rem;
+
+          input[type="checkbox"] {
+            accent-color: $color-dark; // Color personalizado del checkbox
+            margin-top: 0.2rem;
+            width: 1rem;
+            height: 1rem;
+          }
+
+          label {
+            margin: 0;
+            font-size: $font-size-label;
+            color: $color-muted;
+            line-height: 1.4;
+          }
+
+          a {
+            color: $color-dark; // Color del enlace
+            &:hover {
+              color: darken(
+                $color-dark,
+                10%
+              ); // Oscurece el color al pasar el ratón
+            }
+          }
+        }
+
+        &__button-zone {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem; // Espacio entre el botón y el pie de formulario
+          align-items: center;
+        }
+
+        .form-button {
+          background-color: #cfcfcf;
+          color: #fff;
+          font-weight: bold;
+          font-size: 1rem;
+          padding: 0.75rem 1rem;
+          width: 100%;
+          border: none;
+          border-radius: 8px;
+          margin-top: 1rem;
+          cursor: not-allowed;
+          transition: background-color 0.3s ease;
+
+          &:hover:not([disabled]) {
+            background-color: #aaa;
+            cursor: pointer;
+          }
+        }
+
+        .form-footer {
+          text-align: center;
+          margin-top: 1.5rem;
+          font-size: 0.875rem;
+
+          a {
+            color: #000;
+            text-decoration: underline;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .login-page {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, una sola columna */
+
+    &__branding {
+      display: none; /* Ocultamos la parte izquierda para simplificar */
+    }
+  }
+}

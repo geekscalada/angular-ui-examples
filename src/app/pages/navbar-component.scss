@@ -1,0 +1,51 @@
+/* navbar.component.scss */
+.main-nav {
+  background-color: #b3b2c9;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  border: 1px solid #e61f1f;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #e61fcb;
+}
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  // space between the items
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid #30bd30;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
