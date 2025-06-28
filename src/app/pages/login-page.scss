@@ -147,6 +147,32 @@ $font-family-base: "Segoe UI", sans-serif; // Fuente principal
           }
         }
 
+        .form-group--password {
+          .password-wrapper {
+            position: relative;
+
+            .form-control--password {
+              padding-right: 2.5rem; // Espacio para el icono a la derecha
+            }
+
+            .password-toggle {
+              position: absolute;
+              top: 50%;
+              right: 0.75rem;
+              transform: translateY(-50%);
+              background: transparent;
+              border: none;
+              padding: 0;
+              cursor: pointer;
+
+              img {
+                width: 1.25rem;
+                height: 1.25rem;
+              }
+            }
+          }
+        }
+
         .form-check {
           display: flex;
           align-items: flex-start;

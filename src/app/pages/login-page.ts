@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-login-page',
   imports: [],
   templateUrl: './login-page.html',
-  styleUrl: './login-page.scss'
+  styleUrl: './login-page.scss',
 })
 export class LoginPage {
+  showPassword = false;
 
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 }

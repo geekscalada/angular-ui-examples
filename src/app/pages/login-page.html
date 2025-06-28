@@ -53,36 +53,52 @@
           <input type="tel" id="phone" name="phone" class="form-control" />
         </div>
 
-        <div class="form-group">
+        <!-- Campo de contraseña con botón para mostrar/ocultar -->
+        <div class="form-group form-group--password">
           <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-          />
-          <small class="form-hint"
-            >Use 8 or more characters with a mix of letters, numbers &
-            symbols</small
-          >
+          <div class="password-wrapper">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              name="password"
+              class="form-control form-control--password"
+            />
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePassword()"
+              [attr.aria-label]="
+                showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'
+              "
+            >
+              <img
+                [src]="
+                  showPassword ? 'assets/show-icon.svg' : 'assets/hide-icon.svg'
+                "
+                alt=""
+              />
+            </button>
+          </div>
+          <small class="form-hint">
+            Use 8 or more characters with a mix of letters, numbers & symbols
+          </small>
         </div>
 
         <div class="form-group form-check">
           <input type="checkbox" id="terms" name="terms" />
-          <label for="terms"
-            >By creating an account, I agree to our
+          <label for="terms">
+            By creating an account, I agree to our
             <a href="#">Terms of use</a> and
-            <a href="#">Privacy Policy</a></label
-          >
+            <a href="#">Privacy Policy</a>
+          </label>
         </div>
 
         <div class="form-group form-check">
           <input type="checkbox" id="marketing" name="marketing" />
-          <label for="marketing"
-            >I am also consenting to receive SMS messages and emails including
-            product new feature updates, events, and marketing
-            promotions.</label
-          >
+          <label for="marketing">
+            I am also consenting to receive SMS messages and emails including
+            product new feature updates, events, and marketing promotions.
+          </label>
         </div>
 
         <div class="form__button-zone">
