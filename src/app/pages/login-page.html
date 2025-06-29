@@ -20,40 +20,77 @@
     <div class="form-container">
       <h2 class="form-title">Sign up now</h2>
 
-      <form class="form">
-        <!-- Agrupamos los campos de nombre en una sola fila con distribución equitativa -->
+      <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="form-group form-group--half">
             <label for="firstName">First name</label>
             <input
-              type="text"
               id="firstName"
-              name="firstName"
+              formControlName="firstName"
+              type="text"
               class="form-control"
+              [ngClass]="{
+                'is-invalid': isInvalid('firstName'),
+                'is-valid': isValid('firstName')
+              }"
             />
+            <div class="form-error" *ngIf="isInvalid('firstName')">
+              First name is required.
+            </div>
           </div>
+
           <div class="form-group form-group--half">
             <label for="lastName">Last name</label>
             <input
-              type="text"
               id="lastName"
-              name="lastName"
+              formControlName="lastName"
+              type="text"
               class="form-control"
+              [ngClass]="{
+                'is-invalid': isInvalid('lastName'),
+                'is-valid': isValid('lastName')
+              }"
             />
+            <div class="form-error" *ngIf="isInvalid('lastName')">
+              Last name is required.
+            </div>
           </div>
         </div>
 
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" id="email" name="email" class="form-control" />
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': isInvalid('email'),
+              'is-valid': isValid('email')
+            }"
+          />
+          <div class="form-error" *ngIf="isInvalid('email')">
+            Please enter a valid email.
+          </div>
         </div>
 
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" class="form-control" />
+          <input
+            id="phone"
+            formControlName="phone"
+            type="tel"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': isInvalid('phone'),
+              'is-valid': isValid('phone')
+            }"
+          />
+          <div class="form-error" *ngIf="isInvalid('phone')">
+            Enter a valid phone number (min 9 digits).
+          </div>
         </div>
 
-        <!-- Campo de contraseña con botón para mostrar/ocultar -->
         <div class="form-group form-group--password">
           <div class="form-label-row">
             <label for="password">Password</label>
@@ -78,25 +115,37 @@
             [type]="showPassword ? 'text' : 'password'"
             id="password"
             name="password"
+            formControlName="password"
             class="form-control form-control--password"
+            [ngClass]="{
+              'is-invalid': isInvalid('password'),
+              'is-valid': isValid('password')
+            }"
           />
 
           <small class="form-hint">
             Use 8 or more characters with a mix of letters, numbers & symbols
           </small>
+          <div class="form-error" *ngIf="isInvalid('password')">
+            Password must be at least 8 characters and include letters, numbers,
+            and symbols.
+          </div>
         </div>
 
         <div class="form-group form-check">
-          <input type="checkbox" id="terms" name="terms" />
+          <input type="checkbox" id="terms" formControlName="terms" />
           <label for="terms">
             By creating an account, I agree to our
             <a href="#">Terms of use</a> and
             <a href="#">Privacy Policy</a>
           </label>
+          <div class="form-error" *ngIf="isInvalid('terms')">
+            You must accept the terms.
+          </div>
         </div>
 
         <div class="form-group form-check">
-          <input type="checkbox" id="marketing" name="marketing" />
+          <input type="checkbox" id="marketing" formControlName="marketing" />
           <label for="marketing">
             I am also consenting to receive SMS messages and emails including
             product new feature updates, events, and marketing promotions.
@@ -104,7 +153,9 @@
         </div>
 
         <div class="form__button-zone">
-          <button type="submit" class="form-button" disabled>Sign up</button>
+          <button type="submit" class="form-button" [disabled]="form.invalid">
+            Sign up
+          </button>
 
           <p class="form-footer">
             Already have an account? <a href="#">Log in</a>

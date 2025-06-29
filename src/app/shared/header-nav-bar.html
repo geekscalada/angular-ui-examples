@@ -1,0 +1,19 @@
+<!-- navbar.component.html -->
+<mat-toolbar class="navbar">
+  <span class="navbar__logo">MyApp</span>
+
+  <span class="navbar__spacer"></span>
+
+  <div class="navbar__search-wrapper">
+    <mat-form-field class="navbar__search" appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Search" />
+    </mat-form-field>
+  </div>
+
+  <mat-select class="navbar__select" [(value)]="selectedLang">
+    <mat-option value="en">English</mat-option>
+    <mat-option value="es">Español</mat-option>
+    <mat-option value="fr">Français</mat-option>
+  </mat-select>
+</mat-toolbar>

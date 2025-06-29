@@ -8,6 +8,7 @@ $color-border: #ccc; // Bordes de inputs
 $color-primary: #4caf50; // Color del botón principal
 $color-muted: #666; // Texto secundario o desactivado
 $color-focus: #4caf50; // Color para estado focus en campos
+$color-error: #f44336; // Color para errores
 $font-size-title: 2.5rem; // Tamaño del título principal
 $font-size-subtitle: 1.125rem; // Tamaño del subtítulo
 $font-size-form-title: 2rem; // Título del formulario
@@ -21,11 +22,28 @@ $max-image-width: 300px; // Anchura máxima de la imagen izquierda
 $breakpoint-mobile: 768px; // Punto de corte responsive
 $font-family-base: "Segoe UI", sans-serif; // Fuente principal
 
+// Estilos de validación visual
+.is-valid {
+  border-color: $color-primary;
+  box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+}
+
+.is-invalid {
+  border-color: $color-error;
+  box-shadow: 0 0 0 2px rgba($color-error, 0.2);
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: $color-error;
+  margin-top: 0.25rem;
+}
+
 .login-page {
   font-family: $font-family-base;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  height: calc(100vh - 60px);
   overflow: hidden;
 
   &__branding {
@@ -73,6 +91,7 @@ $font-family-base: "Segoe UI", sans-serif; // Fuente principal
 
     @media (max-width: $breakpoint-mobile) {
       padding: 0;
+      height: calc(100vh - 60px);
     }
 
     .form-container {
@@ -81,6 +100,7 @@ $font-family-base: "Segoe UI", sans-serif; // Fuente principal
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
       max-width: $max-form-width;
       padding: 2rem;
+      max-height: 100%;
 
       @media (max-width: $breakpoint-mobile) {
         border-radius: 0;
@@ -90,7 +110,7 @@ $font-family-base: "Segoe UI", sans-serif; // Fuente principal
 
       .form-title {
         font-size: $font-size-form-title;
-        margin-bottom: 2rem;
+        margin: 1.3rem 0 1.3rem 0;
         text-align: center;
       }
 
@@ -229,6 +249,10 @@ $font-family-base: "Segoe UI", sans-serif; // Fuente principal
           margin-top: 1rem;
           cursor: not-allowed;
           transition: background-color 0.3s ease;
+
+          &:not([disabled]) {
+            background-color: $color-dark;
+          }
 
           &:hover:not([disabled]) {
             background-color: #aaa;
