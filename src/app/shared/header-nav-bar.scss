@@ -35,7 +35,7 @@ $size-input-icon: calc(#{$font-size-input} * 1.15);
     justify-content: center;
     border: 1px solid rgba(102, 102, 102, 0.35);
 
-    .wrapper-flex {
+    .navbar__search-inner {
       display: flex;
       align-items: center;
       margin: 8px 16px 8px 16px;
