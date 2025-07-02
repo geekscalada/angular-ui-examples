@@ -25,3 +25,9 @@ For a complete list of available schematics (such as `components`, `directives`,
 ```bash
 ng generate --help
 ```
+
+## Que es esto?
+
+- Ejemplo de diseño con dos columnas una de ellas en card y un navbar.
+  - A.Mat , pixel perfect, BEM, responsive, modern SCSS.
+- Ejemplo de una barra centradora.
